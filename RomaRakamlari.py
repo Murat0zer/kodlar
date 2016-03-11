@@ -11,7 +11,6 @@ def replace_last(source_string, replace_what, replace_with):
 roma_rakamlari = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 white_list_roma = set('IVXLCDM')
 white_list_arabic = set('1234567890')
-white_list_binary = set('10')
 white_list_menu = set('1239')
 
 
@@ -39,7 +38,7 @@ def roma_rakam_kontrol(kontrol_roma):
     if nesne4.__len__() > 0:
         print "I X C ve M rakamları 3den fazla tekrar edemez."
         return 0
-    ######################################################################################################################
+    ###################################################################################################################
 
     i = 1
     for key in kontrol_roma:
@@ -62,8 +61,8 @@ def roma_rakam_kontrol(kontrol_roma):
                 kontrol_roma[i]) and roma_rakamlari.get(kontrol_roma[i]) == roma_rakamlari.get(kontrol_roma[i + 1]):
             print "Rakamların değerleri büyükten küçüğe doğru gitmelidir.-"
             return 0
-        if kontrol_roma.__len__() - 1 > i and roma_rakamlari.get(key) > roma_rakamlari.get(
-                kontrol_roma[i]) and roma_rakamlari.get(kontrol_roma[i + 1]) > roma_rakamlari.get(key):
+        if i < kontrol_roma.__len__() - 1 > roma_rakamlari.get(
+                kontrol_roma[i]) < roma_rakamlari.get(key):
             print "Rakamların değerleri büyükten küçüğe doğru gitmelidir.--"
             return 0
         if kontrol_roma.__len__() - 1 > i and roma_rakamlari.get(key) < roma_rakamlari.get(
@@ -270,8 +269,8 @@ def sadelestir(sayi1, sayi2):
                                     buldum = re.findall(sayi2[a - z], sayi1)
                             else:
                                 return sayi1, sayi2
-                            # sayi1, sayi2 = sadelestir(sayi1, sayi2)
-                            # sayi1, sadelestirme_gereksiz  = birlestir(sayi1)
+                                # sayi1, sayi2 = sadelestir(sayi1, sayi2)
+                                # sayi1, sadelestirme_gereksiz  = birlestir(sayi1)
         if buldum == 0:
             sayi1 = parcala(sayi1, len1 - 1)
             sayi1, sayi2 = sadelestir(sayi1, sayi2)
@@ -389,15 +388,6 @@ def roma_cikarma(r1, r2):
 
     return artilar
 
-
-#
-# def binary_toplam(n1,n2) :
-#
-# def binary_cikarma(n1,n2) :
-#
-# def binary_carpma(n1,n2) :
-#
-# def binary_bolme(n1,n2) :
 secim = 0
 while (secim != 9):
     print "Yapmak istediginiz islemi secin \n \
